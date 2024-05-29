@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .butt{
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+       #inp{
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            width: 160px;
+            height: 20px;
+        }
+        #contenar{
+
+            width: 203px;
+            margin: 0 auto;
+            border: 2px solid black;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="contenar">
+        <input type="text" id="inp">
+        <div class="row">
+            <button class="butt">9</button>
+            <button class="butt">8</button>
+            <button class="butt">7</button>
+            <button class="butt">*</button>
+        </div>
+        <div class="row"> 
+            <button class="butt">6</button>
+            <button class="butt">5</button>
+            <button class="butt">4</button>
+            <button class="butt">/</button>
+        </div>
+        <div class="row">
+            <button class="butt">3</button>
+            <button class="butt">2</button>
+            <button class="butt">1</button>
+            <button class="butt">+</button>
+        </div>
+        <div class="row">
+            <button class="butt">0</button>
+            <button class="butt">.</button>
+            <button class="butt">=</button>
+            <button class="butt">c</button>
+        </div>
+    </div>
+    <script>
+        let num=document.querySelectorAll('.butt')
+        let str=""
+        num.forEach((i)=>{
+            i.addEventListener('click',(btn)=>{
+                if(btn.target.innerHTML=='='){
+                    str=eval(str)
+                    document.querySelector('input').value=str
+             
+                }
+                else if(btn.target.innerHTML =='c'){
+                    str=""
+                    document.querySelector('input').value=str
+                }
+                else{
+                    str=str+btn.target.innerHTML
+                    document.querySelector('input').value=str
+                }
+            })
+        })
+    </script>
+</body>
+</html>
